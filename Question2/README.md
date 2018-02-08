@@ -1,0 +1,1 @@
+Q2. Write a program to print the top 5 most repeated words from a List? The output should be sorted in descending order. 
