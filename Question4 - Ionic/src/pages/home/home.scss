@@ -1,0 +1,26 @@
+page-home {
+    .invalidData{
+        background-color: red;
+    }
+
+    ion-select{
+        max-width: 100% !important;
+    }
+
+    .select{
+        width:100%;
+        padding: 0px !important;
+    }
+
+    .item-select{
+        margin-top:5%;
+    }
+
+    .select-icon{
+        width:15px !important;
+    }
+
+    .lastFormChild .item-inner{
+        border-bottom: 0px !important;
+    }
+}

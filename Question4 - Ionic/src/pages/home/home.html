@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Ionic Blank
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm.value)">
+    <ion-item [ngClass]="{'error-border':!registerForm.controls.register_name.valid && registerForm.controls.register_name.touched}" >
+      <ion-label floating>Name</ion-label>
+      <ion-input formControlName="register_name" type="text" 
+      [ngClass]="(btnClicked && (registerForm.controls.register_name.hasError('required') || registerForm.controls.register_name.hasError('pattern')))?'invalidData' : '' " (change)='onChangeName($event.target.value)'></ion-input>
+    </ion-item>
+    <!--<ion-item *ngIf="registerForm.controls.register_name.hasError('required') && registerForm.controls.register_name.touched">
+      <p>Please enter name</p>
+    </ion-item>
+    <ion-item *ngIf="registerForm.controls.register_name.hasError('pattern') && registerForm.controls.register_name.touched">
+      <p>Invalid Name</p>
+    </ion-item>-->
+
+    <ion-item [ngClass]="{'error-border':!registerForm.controls.register_phone.valid && registerForm.controls.register_phone.touched}">
+      <ion-label floating>Phone</ion-label>
+      <ion-input formControlName="register_phone" type="text" 
+      [ngClass]="(btnClicked && (registerForm.controls.register_name.hasError('required') || registerForm.controls.register_phone.hasError('pattern')))?'invalidData' : '' " (change)='onChangePhone($event.target.value)'></ion-input>
+    </ion-item>
+    <!--<ion-item *ngIf="registerForm.controls.register_phone.hasError('required') && registerForm.controls.register_phone.touched">
+      <p>Please enter phone</p>
+    </ion-item>
+    <ion-item *ngIf="registerForm.controls.register_phone.hasError('pattern') && registerForm.controls.register_phone.touched">
+      <p>Invalid Phone</p>
+    </ion-item>-->
+
+    <ion-item [ngClass]="{'error-border':!registerForm.controls.register_email.valid && registerForm.controls.register_email.touched}">
+      <ion-label floating>Email</ion-label>
+      <ion-input formControlName="register_email" type="text" 
+      [ngClass]="(btnClicked && (registerForm.controls.register_name.hasError('required') || registerForm.controls.register_email.hasError('pattern')))?'invalidData' : '' " (change)='onChangeEmail($event.target.value)'></ion-input>
+    </ion-item>
+    <!--<ion-item *ngIf="registerForm.controls.register_email.hasError('required') && registerForm.controls.register_email.touched">
+      <p>Please enter email</p>
+    </ion-item>
+    <ion-item *ngIf="registerForm.controls.register_email.hasError('pattern') && registerForm.controls.register_email.touched">
+      <p>Invalid Email</p>
+    </ion-item>-->
+
+    <ion-item>
+      <!--<ion-label>City</ion-label>-->
+      <ion-select formControlName="register_city" [ngClass]="(selCity &&registerForm.controls.register_city.hasError('required'))?'invalidData' : '' " (ionChange)="onChangeCity($event)">
+        <ion-option value="">Select City</ion-option>
+        <ion-option value="Delhi">Delhi</ion-option>
+        <ion-option value="Mumbai">Mumbai</ion-option>
+        <ion-option value="Kolkata">Kolkata</ion-option>
+        <ion-option value="Chennai">Chennai</ion-option>
+        <ion-option value="Bangalore">Bangalore</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item text-center class="lastFormChild">
+      <!-- <button ion-button round (click)="validateLogin($event)" padding >Login</button> -->
+      <button ion-button round padding [disabled]="!registerForm.valid" type="submit">Login</button>
+    </ion-item>
+
+  </form>
+</ion-content>
